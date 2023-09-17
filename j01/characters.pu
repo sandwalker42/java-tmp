@@ -1,0 +1,45 @@
+@startuml
+
+class Being
+
+class Creature {
+
+    asleep
+    String[] memory
+
+    speakTo()
+    listen()
+    move()
+    drink()
+    sleep()
+    wake()
+}
+
+class CalabashBoy {
+
+    drunk()
+}
+
+class Monster {
+    pourWine()
+}
+
+class Cup {
+    int currentVolume
+    int maxVolume
+
+    fill()
+    pour()
+}
+
+
+Creature --|> Being
+
+CalabashBoy --|> Creature
+
+Monster --|> Creature
+
+Cup --|> Being
+
+
+@enduml

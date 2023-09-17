@@ -1,0 +1,76 @@
+' https://www.bilibili.com/video/BV1zQ4y1d7dQ?p=8
+' 6:12 ~ 7:10
+
+@startuml
+actor       四娃   as fourthBrother    #Orange
+actor       五娃    as fifthBrother    #Yellow
+actor       蛇精    as snake  #Black
+actor       蝎子精    as scorpion   #Purple
+entity      杯子1   as  cup1
+entity      杯子2   as  cup2
+
+snake -[#Grey]> fourthBrother : 告诉
+note right
+    小兄弟真是天神下凡，本领高强，钦佩钦佩，
+    来来，我敬你们一杯酒
+end note
+
+snake -[#Blue]> snake : 前进
+
+snake -[#Blue]> cup1: 倒酒
+
+snake -[#Blue]> cup2: 倒酒
+
+snake -[#Grey]> fourthBrother : 告诉
+note right
+    来，请吧
+end note
+
+fourthBrother -[#Blue]> cup1 : 喝酒
+note left
+    抿一口
+end note
+
+fourthBrother -[#Grey]> snake : 告诉
+note left: 这杯酒好冷啊
+
+snake -[#Grey]> fourthBrother : 告诉
+note right
+    这叫冷泉清凉酒，能去火解暑，安神养心，
+    快，请尝一尝
+end note
+
+fourthBrother -[#Blue]> cup1 : 喝酒
+note left
+    喝一大口
+end note
+
+fourthBrother -[#Blue]> fourthBrother : 醉酒
+note left
+    喝醉
+end note
+
+fourthBrother -[#Grey]> snake : 告诉
+note left
+    这酒，又香又冷，好喝好喝...
+end note
+
+fourthBrother -[#Blue]> fourthBrother : 睡着
+
+fifthBrother -[#Grey]> fourthBrother : 告诉
+note right
+    四哥！四哥！唉...
+end note
+
+scorpion -[#Grey]> fourthBrother : 告诉
+note right
+    哈哈，真是个毛孩子，才喝了几口就醉了
+end note
+
+snake -[#Grey]> fourthBrother : 告诉
+note right
+    哈哈哈哈哈哈——
+end note
+
+@enduml
+
