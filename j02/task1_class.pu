@@ -43,7 +43,7 @@ interface Linable {
     + int getValue()
 }
 
-enum Monster implements Linable {
+class Monster implements Linable {
 
     - int r
     - int g
