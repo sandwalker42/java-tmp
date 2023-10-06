@@ -1,0 +1,80 @@
+@startuml
+
+class Geezer {
+    - {static} Geezer theGeezer
+    - Sorter sorter
+
+    + {static} Geezer getTheGeezer()
+    + void setSorter(Sorter sorter)
+    + String lineUp(Line line)
+    - String[] parsePlan(String plan)
+    - void execute(String step)
+}
+
+interface Sorter {
+    + void load(int[] elements)
+    + void sort()
+    + String getPlan()
+}
+
+class BubbleSorter implements Sorter {
+    - int[] a
+    - String plan
+
+    + void load(int[] a)
+    - void swap(int i, int j)
+    + void sort()
+    + String getPlan()
+}
+
+interface Linable {
+    + void setPosition(Position position)
+    + Position getPosition()
+    + int getValue()
+}
+
+enum Gourd implements Linable {
+    ONE
+    TWO
+    THREE
+    FOUR
+    FIVE
+    SIX
+    SEVEN
+
+    - int r
+    - int g
+    - int b
+    - Position position
+
+    + {static} Gourd getGourdByRank(int rank)
+    + int rank()
+    + String toString()
+    + void setPosition(Position position)
+    + Position getPosition()
+    + void swapPosition(Gourd another)
+    + int getValue()
+}
+
+class Line {
+    - Position[] positions
+
+    + void put(Linable linable, int i)
+    + Linable get(int i)
+    + String toString()
+    + Linable[] toArray()
+}
+
+class Position {
+    - Linable linable
+
+    + void setLinable(Linable linable)
+}
+
+Line "1" *-- "n" Position : 包含
+Position "1" o-- "1" Linable : 对应
+Gourd "1" o-- "1" Position : 对应
+Geezer *-- Sorter : 组合
+Geezer ..> Line : 依赖
+
+@enduml

@@ -1,0 +1,91 @@
+@startuml
+
+class Snake {
+    - {static} Snake theSnake
+    - Sorter sorter
+
+    + {static} Snake getTheSnake()
+    + void setSorter(Sorter sorter)
+    + String lineUp(Line line)
+    - String[] parsePlan(String plan)
+    - void execute(String step)
+}
+
+interface Sorter {
+    + void load(int[] elements)
+    + void sort()
+    + String getPlan()
+}
+
+class BubbleSorter implements Sorter {
+    - int[] a
+    - String plan
+
+    + void load(int[] a)
+    - void swap(int i, int j)
+    + void sort()
+    + String getPlan()
+}
+
+class SelectionSorter implements Sorter {
+    - int[] a
+    - String plan
+
+    + void load(int[] a)
+    - void swap(int i, int j)
+    + void sort()
+    + String getPlan()
+}
+
+interface Linable {
+    + void setPosition(Position position)
+    + Position getPosition()
+    + int getValue()
+}
+
+enum Monster implements Linable {
+
+    - int r
+    - int g
+    - int b
+    - int rank
+    - Position position
+
+    + {static} void initMonsters()
+    + {static} Monster getMonsterByRank(int rank)
+    + int rank()
+    + String toString()
+    + void setPosition(Position position)
+    + Position getPosition()
+    + void swapPosition(Monster another)
+    + int getValue()
+}
+
+class Line {
+    - Position[] positions
+
+    + void put(Linable linable, int i)
+    + Linable get(int i)
+    + String toString()
+    + Linable[] toArray()
+}
+
+class Position {
+    - Linable linable
+
+    + void setLinable(Linable linable)
+}
+
+class ImageReader {
+    + {static} int[][] getPixels(String image)
+}
+
+Line "1" *-- "n" Position : 包含
+Position "1" o-- "1" Linable : 对应
+Monster "1" o-- "1" Position : 对应
+Snake *-- Sorter : 组合
+Snake ..> Line : 依赖
+Snake ..> Monster : 依赖
+Monster ..> ImageReader : 依赖
+
+@enduml

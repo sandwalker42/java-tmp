@@ -1,0 +1,38 @@
+@startuml
+actor ONE
+actor TWO
+actor THREE
+actor FOUR
+actor FIVE
+actor SIX
+actor SEVEN
+actor theGeezer
+entity line
+entity sorter
+entity log
+entity writer
+
+line -[#Grey]> ONE : put
+
+line -[#Grey]> TWO : put
+
+line -[#Grey]> THREE : put
+
+line -[#Grey]> FOUR : put
+
+line -[#Grey]> FIVE : put
+
+line -[#Grey]> SIX : put
+
+line -[#Grey]> SEVEN : put
+
+sorter -[#Grey]> theGeezer : setSorter
+
+line -[#Blue]> theGeezer : 传参
+
+theGeezer -[#Blue]> log : 返回值
+
+log -[#Blue]> writer : write
+
+@enduml
+
