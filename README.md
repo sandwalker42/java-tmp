@@ -1,1 +1,1 @@
-A temporary repository for advanced Java programming
+A temporary repository for Advanced Java Programming
